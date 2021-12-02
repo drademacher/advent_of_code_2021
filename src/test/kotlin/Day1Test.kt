@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test
 
 internal class Day1Test {
-    val sampleInput = mutableListOf(
+    private val sampleInput = mutableListOf(
         199,
         200,
         208,
