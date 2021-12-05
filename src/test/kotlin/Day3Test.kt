@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
 
 internal class Day3Test {
     private val sampleInput = mutableListOf(
@@ -18,11 +19,11 @@ internal class Day3Test {
 
     @Test
     fun `part one example works`() {
-        assert(Day3.partOne(sampleInput) == 198)
+        assertEquals(Day3.partOne(sampleInput), 198)
     }
 
     @Test
     fun `part two example works`() {
-        assert(Day3.partTwo(sampleInput) == 230)
+        assertEquals(Day3.partTwo(sampleInput), 230)
     }
 }
