@@ -25,10 +25,12 @@ object Day7 {
 
     fun partTwo(input: List<Int>): Int {
         return (min(input)..max(input))
-            .map { goal -> Pair(goal, input.sumOf { abs(it - goal) * (abs(it - goal) + 1) / 2 }) } // kleiner Gauss
+            .map { goal -> Pair(goal, input.sumOf { gauss(abs(it - goal)) }) }
             .minByOrNull { it.second }!!
             .second
     }
+
+    private fun gauss(n: Int): Int = n * (n + 1) / 2
 }
 
 fun main() {
