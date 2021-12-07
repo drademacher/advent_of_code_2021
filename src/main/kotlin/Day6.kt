@@ -13,8 +13,8 @@ object Day6 {
         println("Part 2: ${partTwo(input)}")
     }
 
-    fun partOne(inputs: List<Int>): Long {
-        return lanternfish(inputs, 80)
+    fun partOne(input: List<Int>): Long {
+        return lanternfish(input, 80)
     }
 
     fun partTwo(input: List<Int>): Long {
