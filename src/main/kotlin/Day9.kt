@@ -1,6 +1,6 @@
 import java.io.File
 
-private typealias Input = List<List<Int>>
+private typealias Day9Input = List<List<Int>>
 
 typealias Point = Pair<Int, Int>
 val Point.x: Int
@@ -16,16 +16,16 @@ object Day9 {
         println("Part 2: ${partTwo(input)}")
     }
 
-    fun parse(readText: String): Input = readText
+    fun parse(readText: String): Day9Input = readText
         .split("\n")
         .filter { it != "" }
         .map { line -> line.split("").filter { it != "" }.map { it.toInt() } }
 
-    fun partOne(input: Input): Int {
-        return determineLowPoints(input).sumOf { input[it.y][it.x] +1 }
+    fun partOne(input: Day9Input): Int {
+        return determineLowPoints(input).sumOf { input[it.y][it.x] + 1 }
     }
 
-    private fun determineLowPoints(input: Input): Set<Point> {
+    private fun determineLowPoints(input: Day9Input): Set<Point> {
         val lowPoints = mutableSetOf<Point>()
         for (y in input.indices) {
             for (x in input[y].indices) {
@@ -37,7 +37,7 @@ object Day9 {
         return lowPoints
     }
 
-    private fun getOrthogonalNeighbors(input: Input, point: Point): Set<Point> {
+    private fun getOrthogonalNeighbors(input: Day9Input, point: Point): Set<Point> {
         val result = mutableSetOf<Point>()
 
         if (point.x > 0) result.add(Point(point.x - 1, point.y))
@@ -48,18 +48,17 @@ object Day9 {
         return result
     }
 
-
-    fun partTwo(input: Input): Int {
+    fun partTwo(input: Day9Input): Int {
         return determineLowPoints(input)
             .map { lowPoint -> findBasin(input, lowPoint) }
             .map { it.size }
             .sorted()
             .reversed()
             .take(3)
-            .reduce { a, b -> a * b}
+            .reduce { a, b -> a * b }
     }
 
-    private fun findBasin(input: Input, start: Point): Set<Point> {
+    private fun findBasin(input: Day9Input, start: Point): Set<Point> {
         val frontier = mutableListOf(start)
         val visited = mutableSetOf<Point>()
 
