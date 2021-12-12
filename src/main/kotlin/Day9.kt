@@ -2,12 +2,6 @@ import java.io.File
 
 private typealias Day9Input = List<List<Int>>
 
-typealias Point = Pair<Int, Int>
-val Point.x: Int
-    get() = this.first
-val Point.y: Int
-    get() = this.second
-
 object Day9 {
     fun solve() {
         val input = parse(File("src/main/resources/day9.txt").readText())
