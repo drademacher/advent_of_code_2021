@@ -2,16 +2,17 @@ import java.io.File
 
 object Day6 {
     fun solve() {
-        val input = File("src/main/resources/day6.txt")
-            .readText()
-            .replace("\n", "")
-            .split(",")
-            .filter { it != "" }
-            .map { it.toInt() }
+        val input = parseInput(File("src/main/resources/day6.txt").readText())
 
         println("Part 1: ${partOne(input)}")
         println("Part 2: ${partTwo(input)}")
     }
+
+    fun parseInput(readText: String) = readText
+        .replace("\n", "")
+        .split(",")
+        .filter { it != "" }
+        .map { it.toInt() }
 
     fun partOne(input: List<Int>): Long {
         return lanternfish(input, 80)

@@ -6,13 +6,13 @@ object Day12 {
     var counter = 0
 
     fun solve() {
-        val input = parse(File("src/main/resources/day12.txt").readText())
+        val input = parseInput(File("src/main/resources/day12.txt").readText())
 
         println("Part 1: ${partOne(input)}")
         println("Part 2: ${partTwo(input)}")
     }
 
-    fun parse(readText: String): Day12Input {
+    fun parseInput(readText: String): Day12Input {
         val filter = readText
             .split("\n")
             .filter { it != "" }

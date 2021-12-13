@@ -2,14 +2,15 @@ import java.io.File
 
 object Day10 {
     fun solve() {
-        val input = File("src/main/resources/day10.txt")
-            .readText()
-            .split("\n")
-            .filter { it != "" }
+        val input = parseInput(File("src/main/resources/day10.txt").readText())
 
         println("Part 1: ${partOne(input)}")
         println("Part 2: ${partTwo(input)}")
     }
+
+    fun parseInput(readText: String) = readText
+        .split("\n")
+        .filter { it != "" }
 
     fun partOne(input: List<String>): Int {
         val evaluateError = hashMapOf(")" to 3, "]" to 57, "}" to 1197, ">" to 25137)

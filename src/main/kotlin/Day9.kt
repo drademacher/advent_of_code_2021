@@ -4,13 +4,13 @@ private typealias Day9Input = List<List<Int>>
 
 object Day9 {
     fun solve() {
-        val input = parse(File("src/main/resources/day9.txt").readText())
+        val input = parseInput(File("src/main/resources/day9.txt").readText())
 
         println("Part 1: ${partOne(input)}")
         println("Part 2: ${partTwo(input)}")
     }
 
-    fun parse(readText: String): Day9Input = readText
+    fun parseInput(readText: String): Day9Input = readText
         .split("\n")
         .filter { it != "" }
         .map { line -> line.split("").filter { it != "" }.map { it.toInt() } }

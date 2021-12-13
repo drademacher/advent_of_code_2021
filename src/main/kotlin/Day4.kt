@@ -49,13 +49,13 @@ object Day4 {
     }
 
     fun solve() {
-        val (numbers, boards) = parse(File("src/main/resources/day4.txt").readText())
+        val (numbers, boards) = parseInput(File("src/main/resources/day4.txt").readText())
 
         println("Part 1: ${partOne(numbers, boards)}")
         println("Part 2: ${partTwo(numbers, boards)}")
     }
 
-    fun parse(file: String): Pair<List<Int>, List<Board>> {
+    fun parseInput(file: String): Pair<List<Int>, List<Board>> {
         val rawInput = file
             .split("\n")
             .filter { it != "" }

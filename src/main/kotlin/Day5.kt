@@ -32,13 +32,13 @@ object Day5 {
     }
 
     fun solve() {
-        val lines = parse(File("src/main/resources/day5.txt").readText())
+        val lines = parseInput(File("src/main/resources/day5.txt").readText())
 
         println("Part 1: ${partOne(lines)}")
         println("Part 2: ${partTwo(lines)}")
     }
 
-    fun parse(file: String): List<Line> {
+    fun parseInput(file: String): List<Line> {
         return file
             .replace(" -> ", ",")
             .split("\n")

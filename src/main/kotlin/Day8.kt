@@ -15,13 +15,13 @@ object Day8 {
     private val displayToIntMapping = hashMapOf(zero to 0, one to 1, two to 2, three to 3, four to 4, five to 5, six to 6, seven to 7, eight to 8, nine to 9)
 
     fun solve() {
-        val input = parse(File("src/main/resources/day8.txt").readText())
+        val input = parseInput(File("src/main/resources/day8.txt").readText())
 
         println("Part 1: ${partOne(input)}")
         println("Part 2: ${partTwo(input)}")
     }
 
-    fun parse(readText: String) = readText
+    fun parseInput(readText: String) = readText
         .split("\n")
         .filter { it != "" }
         .map { it.replace(" | ", " ").split(" ").map { it.split("").sorted().joinToString("") } }

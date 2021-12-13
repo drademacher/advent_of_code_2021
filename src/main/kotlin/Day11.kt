@@ -9,7 +9,7 @@ fun Day11Input.clone(): Day11Input = this.map { it.toMutableList() }.toMutableLi
 
 object Day11 {
     fun solve() {
-        val input = parse(
+        val input = parseInput(
             File("src/main/resources/day11.txt")
                 .readText()
         )
@@ -18,7 +18,7 @@ object Day11 {
         println("Part 2: ${partTwo(input.clone())}")
     }
 
-    fun parse(x: String) = x
+    fun parseInput(x: String) = x
         .split("\n")
         .filter { it != "" }
         .map { it.split("").filter { it != "" }.map { it.toInt() }.toMutableList() }
@@ -92,7 +92,7 @@ object Day11 {
         return -1
     }
 
-    fun getNeighbors(input: Day11Input, point: Point): List<Point> = (-1..+1).flatMap { x -> (-1..+1).map { y -> Point(x, y) } }
+    private fun getNeighbors(input: Day11Input, point: Point): List<Point> = (-1..+1).flatMap { x -> (-1..+1).map { y -> Point(x, y) } }
         .filter { it != Point(0, 0) }
         .map { it.add(point) }
         .filter { input.getOrNull(it.y)?.getOrNull(it.x) != null }

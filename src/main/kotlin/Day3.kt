@@ -2,15 +2,16 @@ import java.io.File
 
 object Day3 {
     fun solve() {
-        val input = File("src/main/resources/day3.txt")
-            .readText()
-            .split("\n")
-            .filter { it != "" }
-            .map { it.split(("")).filter { bit -> bit == "0" || bit == "1" } }
+        val input = parseInput(File("src/main/resources/day3.txt").readText())
 
         println("Part 1: ${partOne(input)}")
         println("Part 2: ${partTwo(input)}")
     }
+
+    fun parseInput(readText: String) = readText
+        .split("\n")
+        .filter { it != "" }
+        .map { it.split(("")).filter { bit -> bit == "0" || bit == "1" } }
 
     fun partOne(input: List<List<String>>): Int {
         val bitsSize = input[0].size
